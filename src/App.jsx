@@ -1,9 +1,18 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext.jsx";
 import Routes from "./Routes";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   return (
-    <Routes />
+    <ErrorBoundary>
+      <AuthProvider>
+        <Router>
+          <Routes />
+        </Router>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }
 
